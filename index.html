@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Primeiros Pontos</title>
+<meta name="description" content="Curso de bordado livre com agulha e bastidor para quem nunca bordou: materiais, preparo, 7 pontos básicos, primeiro projeto e acabamento, com vídeo em cada etapa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f1e8; --surface:#fffaf3; --surface-2:#f1e7d8; --ink:#2b2420; --muted:#6b5d52;
+  --line:#e2d4c0; --accent:#b4433a; --accent-ink:#ffffff; --thread:#b4433a; --thread-2:#3f7a5f;
+  --guide:#b9a68f; --ok:#3f7a5f; --shadow:0 1px 2px rgba(60,40,20,.06),0 6px 20px rgba(60,40,20,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1816; --surface:#25201d; --surface-2:#2f2925; --ink:#f2e9df; --muted:#b5a698;
+    --line:#3d3530; --accent:#e0776c; --accent-ink:#1c1816; --thread:#e0776c; --thread-2:#7cc4a1;
+    --guide:#6f6257; --ok:#7cc4a1; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1816; --surface:#25201d; --surface-2:#2f2925; --ink:#f2e9df; --muted:#b5a698;
+  --line:#3d3530; --accent:#e0776c; --accent-ink:#1c1816; --thread:#e0776c; --thread-2:#7cc4a1;
+  --guide:#6f6257; --ok:#7cc4a1; --shadow:none;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.2;margin:0 0 .5em}
+h1{font-size:clamp(2rem,5vw,3.2rem)}
+h2{font-size:clamp(1.5rem,3.2vw,2rem)}
+h3{font-size:1.2rem}
+a{color:var(--accent)}
+p{margin:0 0 1em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+
+/* Topo */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:16px;height:60px}
+.brand{font-family:Fraunces,serif;font-weight:700;font-size:1.15rem;text-decoration:none;color:var(--ink);white-space:nowrap}
+.progress{flex:1;display:flex;align-items:center;gap:10px;min-width:0}
+.bar{flex:1;height:8px;background:var(--surface-2);border-radius:99px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--ok);transition:width .3s}
+.progress small{color:var(--muted);white-space:nowrap}
+.theme-btn{background:none;border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:4px 12px;cursor:pointer;font:inherit;font-size:.9rem}
+
+/* Hero */
+.hero{padding:48px 0 32px}
+.hero p.lead{font-size:1.2rem;color:var(--muted);max-width:640px}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:24px}
+.method div{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+.method b{display:block;font-family:Fraunces,serif;margin-bottom:2px}
+.method span{color:var(--muted);font-size:.95rem}
+
+/* Layout */
+.layout{display:grid;grid-template-columns:240px 1fr;gap:32px;align-items:start;padding-bottom:64px}
+nav.side{position:sticky;top:80px;font-size:.95rem}
+nav.side ol{list-style:none;margin:0;padding:0}
+nav.side .grp{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-size:.75rem;margin:16px 0 4px;font-weight:700}
+nav.side a{display:flex;gap:8px;align-items:center;padding:4px 8px;border-radius:8px;color:var(--ink);text-decoration:none}
+nav.side a:hover{background:var(--surface-2)}
+nav.side a .ck{width:16px;height:16px;border-radius:50%;border:1.5px solid var(--guide);flex:none;display:grid;place-items:center;font-size:11px;color:var(--accent-ink)}
+nav.side a.feito .ck{background:var(--ok);border-color:var(--ok)}
+nav.side a.feito .ck::after{content:"✓"}
+main{min-width:0}
+
+/* Lições */
+.lesson{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;margin-bottom:24px;box-shadow:var(--shadow)}
+.tag{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.goal{background:var(--surface-2);border-radius:10px;padding:10px 14px;margin-bottom:18px}
+.goal b{color:var(--accent)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.cols>*{min-width:0}
+ol.steps{padding-left:0;list-style:none;counter-reset:s;margin:0 0 1em}
+ol.steps li{counter-increment:s;position:relative;padding-left:38px;margin-bottom:10px}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:700;font-size:.85rem}
+ul.clean{padding-left:20px;margin:0 0 1em}
+.tip,.oops{border-left:4px solid var(--thread-2);padding:8px 14px;margin:14px 0;background:color-mix(in srgb,var(--thread-2) 8%,transparent);border-radius:0 8px 8px 0}
+.oops{border-left-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.tip b,.oops b{display:block}
+figure.diag{margin:0 0 16px;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:12px}
+figure.diag svg{width:100%;height:auto;display:block}
+figure.diag figcaption{font-size:.85rem;color:var(--muted);margin-top:6px}
+svg .guide{stroke:var(--guide);stroke-width:1.5;stroke-dasharray:4 4;fill:none}
+svg .st{stroke:var(--thread);stroke-width:4;stroke-linecap:round;fill:none}
+svg .st2{stroke:var(--thread-2);stroke-width:4;stroke-linecap:round;fill:none}
+svg .back{stroke:var(--muted);stroke-width:1.5;stroke-dasharray:3 3;fill:none}
+svg .up{fill:var(--ink)}
+svg .down{fill:var(--bg);stroke:var(--ink);stroke-width:1.8}
+svg text{fill:var(--muted);font:600 11px "Source Sans 3",sans-serif}
+svg .fillst{stroke:var(--thread);stroke-width:3.2;stroke-linecap:round}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem;color:var(--muted);margin-bottom:16px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+.legend .u{background:var(--ink)} .legend .d{border:2px solid var(--ink)}
+
+/* Vídeo */
+.video{margin-top:8px}
+.vbtn{position:relative;display:block;width:100%;aspect-ratio:16/9;border:0;padding:0;border-radius:12px;overflow:hidden;cursor:pointer;background:#000}
+.vbtn img{width:100%;height:100%;object-fit:cover;display:block;opacity:.88;transition:opacity .2s}
+.vbtn:hover img,.vbtn:focus-visible img{opacity:1}
+.vbtn .play{position:absolute;inset:0;margin:auto;width:68px;height:48px;border-radius:12px;background:#d33;display:grid;place-items:center}
+.vbtn .play::after{content:"";border-style:solid;border-width:10px 0 10px 17px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.video iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:12px;display:block}
+.vcap{font-size:.88rem;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.vcap b{color:var(--ink);font-weight:600}
+.extra{font-size:.9rem;color:var(--muted);margin-top:8px}
+
+.done{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 16px;border:1.5px solid var(--line);border-radius:99px;cursor:pointer;font-weight:600;user-select:none}
+.done input{width:18px;height:18px;accent-color:var(--ok)}
+.done:has(input:checked){border-color:var(--ok);color:var(--ok)}
+
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:Fraunces,serif;font-weight:500}
+.table-wrap{overflow-x:auto}
+.mats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:16px}
+.mats div{border:1px solid var(--line);border-radius:10px;padding:12px 14px;background:var(--bg)}
+.mats b{display:block}
+.mats span{font-size:.92rem;color:var(--muted)}
+.risco{max-width:420px;margin:0 auto 12px}
+.risco svg text{font:600 30px Caveat,cursive;fill:var(--ink)}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:99px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none}
+.sources li{margin-bottom:4px}
+footer{color:var(--muted);font-size:.9rem;padding:24px 0 48px;border-top:1px solid var(--line)}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:1fr}
+  nav.side{position:static;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+  nav.side ol{display:none}
+  nav.side.open ol{display:block}
+  nav.side .toggle{display:block}
+  .cols{grid-template-columns:1fr}
+  .lesson{padding:20px}
+  .progress small{display:none}
+}
+nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--ink);font:inherit;font-weight:700;text-align:left;padding:6px 0;cursor:pointer}
+
+@media print{
+  body *{visibility:hidden}
+  #risco-print,#risco-print *{visibility:visible}
+  #risco-print{position:absolute;left:0;top:0;width:15cm}
+  #risco-print svg .guide{stroke:#999}
+  #risco-print svg text{fill:#555}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#inicio">🪡 Primeiros Pontos</a>
+    <div class="progress" aria-label="Seu progresso">
+      <div class="bar"><span id="barra"></span></div>
+      <small id="contagem">0 de 0 etapas</small>
+    </div>
+    <button class="theme-btn" id="tema" type="button" aria-label="Trocar tema">◐ Tema</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <section class="hero" id="inicio">
+    <span class="tag">Curso gratuito · bordado livre</span>
+    <h1>Aprenda a bordar com agulha e bastidor, do zero</h1>
+    <p class="lead">Um roteiro em 4 etapas para quem nunca bordou: separar o material, preparar o tecido, treinar 7 pontos básicos num mostruário e bordar sua primeira peça. Cada lição tem passo a passo, desenho do ponto e um vídeo do YouTube.</p>
+    <div class="method">
+      <div><b>1. Um ponto por vez</b><span>Cada lição tem um objetivo só. Você termina e marca como feita.</span></div>
+      <div><b>2. Ver, depois fazer</b><span>Leia o passo a passo, olhe o desenho, assista ao vídeo e pause sempre que precisar.</span></div>
+      <div><b>3. Treine num mostruário</b><span>Um tecido só de treino, sem pressão de ficar bonito. Ele vira sua referência.</span></div>
+      <div><b>4. Erros já previstos</b><span>Cada ponto traz o erro mais comum de quem está começando e como corrigir.</span></div>
+    </div>
+  </section>
+
+  <div class="layout">
+    <nav class="side" id="menu" aria-label="Lições">
+      <button class="toggle" type="button" id="menu-btn">☰ Lições do curso</button>
+      <ol>
+        <li class="grp">Etapa 1 · Preparar</li>
+        <li><a href="#materiais"><span class="ck"></span>Materiais</a></li>
+        <li><a href="#bastidor"><span class="ck"></span>Montar o bastidor</a></li>
+        <li><a href="#risco"><span class="ck"></span>Passar o risco</a></li>
+        <li><a href="#linha"><span class="ck"></span>Linha: começar e arrematar</a></li>
+        <li class="grp">Etapa 2 · Pontos</li>
+        <li><a href="#alinhavo"><span class="ck"></span>Ponto alinhavo</a></li>
+        <li><a href="#atras"><span class="ck"></span>Ponto atrás</a></li>
+        <li><a href="#haste"><span class="ck"></span>Ponto haste</a></li>
+        <li><a href="#corrente"><span class="ck"></span>Ponto corrente</a></li>
+        <li><a href="#margarida"><span class="ck"></span>Ponto margarida</a></li>
+        <li><a href="#cheio"><span class="ck"></span>Ponto cheio</a></li>
+        <li><a href="#no-frances"><span class="ck"></span>Nó francês</a></li>
+        <li class="grp">Etapa 3 · Projeto</li>
+        <li><a href="#projeto"><span class="ck"></span>Primeiro bordado</a></li>
+        <li class="grp">Etapa 4 · Finalizar</li>
+        <li><a href="#acabamento"><span class="ck"></span>Acabamento no bastidor</a></li>
+        <li class="grp">Consulta</li>
+        <li><a href="#problemas">Problemas e soluções</a></li>
+        <li><a href="#plano">Plano de 7 dias</a></li>
+        <li><a href="#glossario">Glossário</a></li>
+        <li><a href="#fontes">Fontes e vídeos</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <!-- Visão geral -->
+      <section class="lesson" id="visao">
+        <span class="tag">Antes de começar · 10 min</span>
+        <h2>Veja o caminho inteiro primeiro</h2>
+        <div class="cols">
+          <div>
+            <p>Assista a este vídeo sem bordar nada. Ele mostra os pontos básicos que você vai treinar aqui. A ideia é só reconhecer os pontos; os detalhes vêm em cada lição.</p>
+            <p>Depois, siga as lições na ordem. Os pontos estão arrumados do mais simples ao mais difícil: o alinhavo é a base do ponto atrás, que ajuda no haste, e o corrente ensina a laçada que você vai usar no margarida.</p>
+            <div class="tip"><b>Dica de estudo</b>Borde enquanto o vídeo está pausado, não enquanto ele roda. Veja um trecho, pause, faça, e só então continue.</div>
+          </div>
+          <div class="video" data-id="F0RH2bPu1Ys" data-title="Os 8 pontos básicos do bordado livre (guia completo)" data-channel="Rosalia Rosarinha Bordado"></div>
+        </div>
+      </section>
+
+      <!-- 1. Materiais -->
+      <section class="lesson" id="materiais">
+        <span class="tag">Etapa 1 · Lição 1</span>
+        <h2>Materiais: o kit mínimo</h2>
+        <p class="goal"><b>Objetivo:</b> ter em mãos tudo o que precisa, sem gastar com o que não precisa agora.</p>
+        <div class="mats">
+          <div><b>Bastidor de 15 a 20 cm</b><span>Madeira ou plástico, com parafuso. Tamanho bom para a mão e para o primeiro projeto.</span></div>
+          <div><b>Tecido de algodão</b><span>Algodão cru, tricoline ou linho de trama firme. Corte um quadrado uns 5 cm maior que o bastidor de cada lado.</span></div>
+          <div><b>Linha meada (mouliné)</b><span>Cada meada tem 6 fios que se separam. Comece com 3 ou 4 cores.</span></div>
+          <div><b>Agulha de bordar</b><span>Olho alongado e ponta fina (nº 5 a 9). Um pacote com tamanhos variados resolve.</span></div>
+          <div><b>Tesoura pequena e afiada</b><span>Só para linha. Ponta fina ajuda a cortar rente.</span></div>
+          <div><b>Caneta para tecido</b><span>Caneta que some com água ou lápis fino. Serve para desenhar o risco.</span></div>
+        </div>
+        <div class="cols">
+          <div>
+            <div class="oops"><b>Erro comum</b>Começar com tecido elástico (malha, camiseta) ou muito fino. Ele franze e deforma. Deixe esses para depois.</div>
+            <div class="tip"><b>Quantos fios usar?</b>Para linhas e contornos, 2 ou 3 fios da meada. Para preencher com ponto cheio, 2 fios dão um acabamento mais liso. Separe os fios puxando um de cada vez pela ponta e junte de novo os que quiser usar.</div>
+            <p class="extra">Outro vídeo sobre o tema: <a href="https://www.youtube.com/watch?v=-5nFKVo0CaM" target="_blank" rel="noopener">Materiais básicos para bordado livre</a> (Clube do Bordado), que também ensina a passar a linha na agulha.</p>
+          </div>
+          <div class="video" data-id="yphshHmuntc" data-title="Curso Bordado Livre para iniciantes, Aula 1: Materiais" data-channel="Mimarie . Bordado Livre"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="materiais"> Já separei meu material</label>
+      </section>
+
+      <!-- 2. Bastidor -->
+      <section class="lesson" id="bastidor">
+        <span class="tag">Etapa 1 · Lição 2</span>
+        <h2>Montar o bastidor</h2>
+        <p class="goal"><b>Objetivo:</b> deixar o tecido esticado como pele de tambor. Tecido frouxo é a causa número 1 de bordado franzido.</p>
+        <div class="cols">
+          <div>
+            <ol class="steps">
+              <li>Afrouxe o parafuso e separe os dois aros. O aro de dentro é o inteiro; o de fora tem o parafuso.</li>
+              <li>Apoie o aro de dentro na mesa, coloque o tecido por cima, com o desenho centralizado.</li>
+              <li>Encaixe o aro de fora por cima, pressionando por igual.</li>
+              <li>Puxe o tecido pelas bordas, aos poucos e em volta toda, como quem estica um lençol. Mantenha a trama reta.</li>
+              <li>Aperte o parafuso. Bata com o dedo: deve soar como um tambor.</li>
+              <li>Deixe o parafuso na posição de "meio-dia" (no alto) se você é destro ou destra; assim a linha não engancha nele.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Puxar o tecido depois de apertar tudo, de um lado só. Isso entorta a trama e o desenho fica torto. Estique antes de apertar e por igual.</div>
+            <div class="tip"><b>Ao parar de bordar</b>Tire o tecido do bastidor se for ficar dias sem mexer. Evita a marca circular que o aro deixa.</div>
+            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=p4Bvd0rlvHw" target="_blank" rel="noopener">Aprenda a usar bastidor de bordado</a> (Clube do Bordado), com um truque para tecidos finos.</p>
+          </div>
+          <div class="video" data-id="q9LQfIf3GYc" data-title="Como colocar o tecido no bastidor para bordado" data-channel="Aprendizato, por Tati Faias"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="bastidor"> Meu tecido está esticado</label>
+      </section>
+
+      <!-- 3. Risco -->
+      <section class="lesson" id="risco">
+        <span class="tag">Etapa 1 · Lição 3</span>
+        <h2>Passar o risco (desenho) para o tecido</h2>
+        <p class="goal"><b>Objetivo:</b> transferir um desenho simples para o tecido, com traço fino e que saia depois.</p>
+        <div class="cols">
+          <div>
+            <p><b>Método mais fácil para começar (contraluz):</b></p>
+            <ol class="steps">
+              <li>Imprima ou desenhe o risco no papel. Você pode usar o risco do <a href="#projeto">primeiro projeto</a>.</li>
+              <li>Prenda o papel numa janela de dia (ou na tela do celular com o brilho no máximo) com fita.</li>
+              <li>Coloque o tecido por cima e prenda também.</li>
+              <li>Contorne o desenho com a caneta para tecido, em traço leve.</li>
+              <li>Só então monte o bastidor.</li>
+            </ol>
+            <p><b>Outras formas:</b> papel carbono próprio para tecido (para tecidos escuros, use carbono claro) e papel solúvel em água, que você desenha, cola no tecido e dissolve no fim.</p>
+            <div class="oops"><b>Erro comum</b>Usar carbono de escritório ou caneta esferográfica forte. Pode manchar e não sair. Teste a caneta num canto do tecido antes.</div>
+            <div class="tip"><b>Caneta que some com calor</b>Funciona, mas o traço pode voltar se o tecido esfriar muito. Para peças de presente, prefira a que sai com água.</div>
+            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=EhwG_H2Dtg0" target="_blank" rel="noopener">Como passar o risco para o tecido com o celular</a> (Bordado à Mão Mirian Oliveira).</p>
+          </div>
+          <div class="video" data-id="_D_HvCB9qIU" data-title="Como passar o risco para o tecido" data-channel="Rosalia Rosarinha Bordado"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="risco"> Meu desenho está no tecido</label>
+      </section>
+
+      <!-- 4. Linha -->
+      <section class="lesson" id="linha">
+        <span class="tag">Etapa 1 · Lição 4</span>
+        <h2>Linha: tamanho, começar e arrematar</h2>
+        <p class="goal"><b>Objetivo:</b> prender a linha no começo e no fim sem que ela solte, e sem avesso embolado.</p>
+        <div class="cols">
+          <div>
+            <ol class="steps">
+              <li><b>Corte a linha</b> do tamanho do seu antebraço (do pulso ao cotovelo, uns 40 a 50 cm). Linha mais longa embola e desfia.</li>
+              <li><b>Separe os fios</b> que vai usar (2 ou 3) e passe pela agulha. Umedecer e achatar a ponta ajuda.</li>
+              <li><b>Comece:</b> dê um nó pequeno na ponta e suba a agulha por trás. Com prática, troque o nó por um início sem nó: deixe uma ponta no avesso e prenda-a com os primeiros pontos.</li>
+              <li><b>Termine:</b> no avesso, passe a agulha por baixo de 3 ou 4 pontos já feitos, volte por mais 2 e corte rente.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Linha torcendo e fazendo nós sozinha. A cada tanto, solte a agulha e deixe-a pendurada girar até a linha desenrolar.</div>
+            <div class="tip"><b>Cor escura em tecido claro</b>Não "pule" longe pelo avesso com linha escura: ela aparece pela frente. Arremate e recomece no ponto novo.</div>
+            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=y0xFm4xE2-w" target="_blank" rel="noopener">Minuto do bordado: início e arremate sem nó</a> (Mel Ateliê Bordados).</p>
+          </div>
+          <div class="video" data-id="m23gAiRzXyI" data-title="Como iniciar e terminar um bordado" data-channel="Pano Xadrez, Eliana Zerbinatti"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="linha"> Sei começar e arrematar</label>
+      </section>
+
+      <!-- Etapa 2: pontos -->
+      <section class="lesson" id="mostruario">
+        <span class="tag">Etapa 2 · Como treinar</span>
+        <h2>Monte seu mostruário de pontos</h2>
+        <p>Pegue um tecido de treino no bastidor e risque 7 linhas, uma para cada ponto (algumas retas, outras em curva). Faça uns 10 cm de cada ponto. Esse pano não precisa ficar bonito; ele serve para a mão aprender a tensão e o tamanho do ponto, e depois fica de referência.</p>
+        <div class="legend"><span><i class="u"></i>agulha sobe (de trás para a frente)</span><span><i class="d"></i>agulha desce (da frente para trás)</span><span>números = ordem dos furos</span></div>
+        <div class="tip"><b>Regra de ouro da tensão</b>Puxe a linha até ela deitar no tecido e pare. Se o tecido enrugar em volta do ponto, você puxou demais.</div>
+      </section>
+
+      <!-- Alinhavo -->
+      <section class="lesson" id="alinhavo">
+        <span class="tag">Ponto 1 de 7 · o mais simples</span>
+        <h2>Ponto alinhavo</h2>
+        <p class="goal"><b>Para que serve:</b> linhas tracejadas, contornos leves e efeito de "costura". É o ponto que ensina o movimento de subir e descer.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do ponto alinhavo: pontos tracejados com espaço entre eles">
+                <line class="guide" x1="10" y1="50" x2="230" y2="50"/>
+                <line class="st" x1="20" y1="50" x2="50" y2="50"/>
+                <line class="st" x1="70" y1="50" x2="100" y2="50"/>
+                <line class="st" x1="120" y1="50" x2="150" y2="50"/>
+                <circle class="up" cx="170" cy="50" r="4"/><text x="166" y="38">1</text>
+                <circle class="down" cx="200" cy="50" r="4"/><text x="196" y="38">2</text>
+                <path class="back" d="M200 54 Q210 72 220 54"/><circle class="up" cx="220" cy="50" r="4"/><text x="216" y="38">3</text>
+              </svg>
+              <figcaption>Ponto e espaço do mesmo tamanho, como um tracejado.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Suba a agulha no começo da linha (1).</li>
+              <li>Desça uns 4 mm à frente (2).</li>
+              <li>Deixe um espaço do mesmo tamanho e suba de novo (3).</li>
+              <li>Repita, mantendo ponto e espaço iguais.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Pontos de tamanhos diferentes. Use as marcas da trama do tecido como régua, ou faça pontinhos guia com a caneta.</div>
+          </div>
+          <div class="video" data-id="4BttCZPU_z8" data-title="Pesponto, ponto de alinhavo e ponto areia" data-channel="Rosalia Rosarinha Bordado"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="alinhavo"> Treinei o alinhavo</label>
+      </section>
+
+      <!-- Atrás -->
+      <section class="lesson" id="atras">
+        <span class="tag">Ponto 2 de 7</span>
+        <h2>Ponto atrás</h2>
+        <p class="goal"><b>Para que serve:</b> linha contínua e firme, para contornos e letras. É o ponto mais usado no bordado livre.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do ponto atrás: linha contínua, a agulha sobe à frente e volta para o fim do ponto anterior">
+                <line class="guide" x1="10" y1="50" x2="230" y2="50"/>
+                <line class="st" x1="20" y1="50" x2="60" y2="50"/>
+                <line class="st" x1="60" y1="50" x2="100" y2="50"/>
+                <line class="st" x1="100" y1="50" x2="140" y2="50"/>
+                <circle class="up" cx="180" cy="50" r="4"/><text x="176" y="38">1</text>
+                <path class="back" d="M180 50 Q160 20 142 46"/>
+                <circle class="down" cx="140" cy="50" r="4"/><text x="128" y="70">2</text>
+                <text x="148" y="20">volta</text>
+              </svg>
+              <figcaption>Suba um ponto à frente e desça "para trás", no fim do ponto anterior.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Faça o primeiro ponto como no alinhavo.</li>
+              <li>Suba a agulha um tamanho de ponto à frente (1).</li>
+              <li>Desça no mesmo furo onde o ponto anterior terminou (2).</li>
+              <li>Repita. Em curvas, faça pontos menores.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Descer ao lado do furo anterior, deixando um vão. Mire exatamente no mesmo furo.</div>
+          </div>
+          <div class="video" data-id="VvNWVNhthwA" data-title="Ponto atrás: ponto básico de bordado à mão para iniciantes" data-channel="Rosalia Rosarinha Bordado"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="atras"> Treinei o ponto atrás</label>
+      </section>
+
+      <!-- Haste -->
+      <section class="lesson" id="haste">
+        <span class="tag">Ponto 3 de 7</span>
+        <h2>Ponto haste</h2>
+        <p class="goal"><b>Para que serve:</b> linhas com aspecto de cordinha torcida. Ótimo para caules, galhos e letras cursivas.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do ponto haste: pontos inclinados que se sobrepõem pela metade">
+                <line class="guide" x1="10" y1="48" x2="230" y2="48"/>
+                <line class="st" x1="20" y1="52" x2="56" y2="44"/>
+                <line class="st" x1="40" y1="52" x2="76" y2="44"/>
+                <line class="st" x1="60" y1="52" x2="96" y2="44"/>
+                <line class="st" x1="80" y1="52" x2="116" y2="44"/>
+                <line class="st" x1="100" y1="52" x2="136" y2="44"/>
+                <circle class="down" cx="176" cy="48" r="4"/><text x="172" y="36">1</text>
+                <circle class="up" cx="156" cy="48" r="4"/><text x="152" y="70">2</text>
+                <path class="back" d="M136 46 Q156 70 176 52"/>
+                <text x="186" y="70">linha embaixo</text>
+              </svg>
+              <figcaption>Cada ponto começa no meio do anterior. A linha solta fica sempre do mesmo lado.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Suba no começo da linha e desça um ponto à frente, sem puxar tudo: deixe uma pequena laçada.</li>
+              <li>Segure a laçada para baixo da linha com o polegar.</li>
+              <li>Suba no meio do ponto que acabou de fazer, ao lado da laçada. Agora puxe.</li>
+              <li>Desça mais um ponto à frente e repita, sempre com a linha do mesmo lado.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Trocar o lado da linha no meio do caminho. O "torcido" se desfaz. Escolha um lado (de baixo) e mantenha.</div>
+          </div>
+          <div class="video" data-id="NSWlti7BjaA" data-title="Bordado livre para iniciantes, série ponto haste, aula 01" data-channel="Revista Marileny Ponto Cruz"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="haste"> Treinei o ponto haste</label>
+      </section>
+
+      <!-- Corrente -->
+      <section class="lesson" id="corrente">
+        <span class="tag">Ponto 4 de 7</span>
+        <h2>Ponto corrente</h2>
+        <p class="goal"><b>Para que serve:</b> linhas grossas e decorativas, que parecem uma correntinha. Ensina a laçada, base do ponto margarida.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do ponto corrente: laçadas encadeadas uma dentro da outra">
+                <line class="guide" x1="10" y1="45" x2="230" y2="45"/>
+                <path class="st" d="M20 45 C25 30 48 32 50 45 C48 58 25 60 20 45"/>
+                <path class="st" d="M50 45 C55 30 78 32 80 45 C78 58 55 60 50 45"/>
+                <path class="st" d="M80 45 C85 30 108 32 110 45 C108 58 85 60 80 45"/>
+                <path class="st" d="M110 45 C115 30 138 32 140 45 C138 58 115 60 110 45"/>
+                <line class="st" x1="140" y1="45" x2="146" y2="45"/>
+                <circle class="up" cx="180" cy="45" r="4"/><text x="170" y="32">1 e 2</text>
+                <circle class="up" cx="210" cy="45" r="4"/><text x="207" y="32">3</text>
+                <path class="back" d="M180 45 C186 62 206 60 210 47"/>
+              </svg>
+              <figcaption>Sobe e desce no mesmo furo (1 e 2), sobe dentro da laçada (3). Feche o último elo com um pontinho.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Suba a agulha (1).</li>
+              <li>Desça no mesmo furo (2), sem puxar tudo: fica uma laçada.</li>
+              <li>Suba um ponto à frente (3), por dentro da laçada.</li>
+              <li>Puxe devagar até a laçada deitar no tecido. Esse é o primeiro elo.</li>
+              <li>Repita a partir do furo 3. No fim, prenda o último elo com um pontinho por cima.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Puxar a laçada demais e o elo virar um risco fino. Puxe só até ele ficar redondinho.</div>
+          </div>
+          <div class="video" data-id="zfLWHUqqNO0" data-title="Tutorial bordado livre: ponto corrente" data-channel="Mimarie . Bordado Livre"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="corrente"> Treinei o ponto corrente</label>
+      </section>
+
+      <!-- Margarida -->
+      <section class="lesson" id="margarida">
+        <span class="tag">Ponto 5 de 7</span>
+        <h2>Ponto margarida (ponto pétala)</h2>
+        <p class="goal"><b>Para que serve:</b> pétalas e folhinhas. É um elo do ponto corrente, sozinho e preso na ponta.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do ponto margarida: seis pétalas em laçada, presas na ponta, formando uma flor">
+                <g transform="translate(120 47)">
+                  <g id="petala"><path class="st" d="M0 -5 C-9 -14 -7 -31 0 -33 C7 -31 9 -14 0 -5"/><line class="st2" x1="-3" y1="-36" x2="3" y2="-36"/></g>
+                  <use href="#petala" transform="rotate(60)"/>
+                  <use href="#petala" transform="rotate(120)"/>
+                  <use href="#petala" transform="rotate(180)"/>
+                  <use href="#petala" transform="rotate(240)"/>
+                  <use href="#petala" transform="rotate(300)"/>
+                </g>
+                <text x="8" y="20">pétala = 1 elo</text>
+                <text x="160" y="84">pontinho na ponta</text>
+              </svg>
+              <figcaption>Cada pétala sai do centro. O pontinho na ponta (verde) segura a laçada.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Suba no centro da flor e desça no mesmo furo, deixando uma laçada.</li>
+              <li>Suba na ponta da pétala, por dentro da laçada.</li>
+              <li>Puxe até a pétala ficar do tamanho certo.</li>
+              <li>Desça logo além da laçada, fazendo um pontinho que a prende.</li>
+              <li>Volte ao centro para a próxima pétala.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Começar todas as pétalas no mesmo furo exato do centro. O tecido abre um buraco. Deixe um mínimo de distância entre os inícios.</div>
+          </div>
+          <div class="video" data-id="WCLvm9jtQTU" data-title="Como bordar o ponto margarida (ou ponto pétala)" data-channel="Mimarie . Bordado Livre"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="margarida"> Treinei o ponto margarida</label>
+      </section>
+
+      <!-- Cheio -->
+      <section class="lesson" id="cheio">
+        <span class="tag">Ponto 6 de 7</span>
+        <h2>Ponto cheio (ponto cetim)</h2>
+        <p class="goal"><b>Para que serve:</b> preencher áreas pequenas (pétalas, folhas, letras grossas) com uma superfície lisa e brilhante.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do ponto cheio: pontos paralelos lado a lado preenchendo uma folha">
+                <defs><clipPath id="folha"><ellipse cx="120" cy="45" rx="62" ry="30"/></clipPath></defs>
+                <g clip-path="url(#folha)">
+                  <g id="fios">
+                    <line class="fillst" x1="62" y1="10" x2="62" y2="80"/><line class="fillst" x1="67" y1="10" x2="67" y2="80"/><line class="fillst" x1="72" y1="10" x2="72" y2="80"/><line class="fillst" x1="77" y1="10" x2="77" y2="80"/><line class="fillst" x1="82" y1="10" x2="82" y2="80"/><line class="fillst" x1="87" y1="10" x2="87" y2="80"/><line class="fillst" x1="92" y1="10" x2="92" y2="80"/><line class="fillst" x1="97" y1="10" x2="97" y2="80"/><line class="fillst" x1="102" y1="10" x2="102" y2="80"/><line class="fillst" x1="107" y1="10" x2="107" y2="80"/><line class="fillst" x1="112" y1="10" x2="112" y2="80"/><line class="fillst" x1="117" y1="10" x2="117" y2="80"/><line class="fillst" x1="122" y1="10" x2="122" y2="80"/>
+                  </g>
+                </g>
+                <ellipse class="guide" cx="120" cy="45" rx="62" ry="30"/>
+                <circle class="up" cx="127" cy="17" r="3.5"/><text x="122" y="10">1</text>
+                <circle class="down" cx="127" cy="73" r="3.5"/><text x="122" y="88">2</text>
+                <text x="190" y="40">sempre na</text><text x="190" y="53">borda</text>
+              </svg>
+              <figcaption>Pontos paralelos, um encostado no outro, sempre de borda a borda do desenho.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Contorne a forma com ponto atrás bem pequeno. Isso deixa a borda limpa.</li>
+              <li>Comece pelo meio da forma: suba numa borda (1) e desça na borda oposta (2), por cima do contorno.</li>
+              <li>Suba de novo encostado ao primeiro ponto, do mesmo lado, e repita até uma ponta.</li>
+              <li>Volte ao meio e preencha a outra metade.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>Pontos longos demais (mais de 1 cm). Eles ficam frouxos e enganchando. Divida áreas grandes em partes, ou use outro ponto.</div>
+          </div>
+          <div class="video" data-id="j42uBR8LQt0" data-title="Tutorial bordado livre: ponto cheio" data-channel="Mimarie . Bordado Livre"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="cheio"> Treinei o ponto cheio</label>
+      </section>
+
+      <!-- Nó francês -->
+      <section class="lesson" id="no-frances">
+        <span class="tag">Ponto 7 de 7 · o mais difícil</span>
+        <h2>Nó francês</h2>
+        <p class="goal"><b>Para que serve:</b> bolinhas em relevo: miolo de flor, olhos, pingos, textura. Costuma levar algumas tentativas, e isso é normal.</p>
+        <div class="cols">
+          <div>
+            <figure class="diag">
+              <svg viewBox="0 0 240 90" role="img" aria-label="Diagrama do nó francês em três etapas: subir, enrolar a linha na agulha, descer ao lado">
+                <line class="guide" x1="10" y1="62" x2="230" y2="62"/>
+                <circle class="up" cx="40" cy="62" r="4"/>
+                <line class="st" x1="40" y1="62" x2="40" y2="30"/>
+                <text x="22" y="82">1. sobe</text>
+                <line x1="92" y1="70" x2="148" y2="22" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round"/>
+                <ellipse class="st" cx="114" cy="51" rx="9" ry="4" transform="rotate(-40 114 51)"/>
+                <ellipse class="st" cx="122" cy="44" rx="9" ry="4" transform="rotate(-40 122 44)"/>
+                <text x="88" y="82">2. enrola 2 vezes</text>
+                <circle cx="200" cy="56" r="8" fill="var(--thread)"/>
+                <path d="M195 55 Q200 49 205 55 Q200 61 196 57" stroke="var(--bg)" stroke-width="1.5" fill="none"/>
+                <circle class="down" cx="212" cy="62" r="3"/>
+                <text x="168" y="82">3. desce ao lado</text>
+              </svg>
+              <figcaption>A linha fica esticada enquanto a agulha desce: é isso que forma o nó.</figcaption>
+            </figure>
+            <ol class="steps">
+              <li>Suba a agulha onde quer o nó.</li>
+              <li>Segure a linha esticada com a mão de baixo e enrole 2 voltas na agulha.</li>
+              <li>Ainda segurando a linha esticada, encoste a ponta da agulha no tecido bem ao lado do furo de saída (não no mesmo furo).</li>
+              <li>Deslize as voltas até o tecido e desça a agulha devagar, soltando a linha só no final.</li>
+            </ol>
+            <div class="oops"><b>Erro comum</b>O nó some para o avesso. Quase sempre é porque a agulha desceu no mesmo furo. Desça a um fio de distância.</div>
+            <div class="tip"><b>Nó maior</b>Para um nó maior, use mais fios na agulha, não mais voltas. Muitas voltas deixam o nó frouxo.</div>
+          </div>
+          <div class="video" data-id="KWPyB2rbao8" data-title="Como bordar nó francês no bordado livre, passo a passo" data-channel="Rosalia Rosarinha Bordado"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="nofrances"> Treinei o nó francês</label>
+      </section>
+
+      <!-- Projeto -->
+      <section class="lesson" id="projeto">
+        <span class="tag">Etapa 3 · Primeiro projeto</span>
+        <h2>Seu primeiro bordado: um raminho e uma palavra</h2>
+        <p class="goal"><b>Objetivo:</b> usar os pontos treinados numa peça de verdade, num bastidor de 15 cm.</p>
+        <div class="cols">
+          <div>
+            <div class="risco" id="risco-print">
+              <svg viewBox="0 0 300 300" role="img" aria-label="Risco do projeto: círculo de 15 cm, flor com pétalas, caule curvo, folhas e a palavra calma">
+                <circle class="guide" cx="150" cy="150" r="140"/>
+                <path d="M150 238 C140 200 160 170 150 120" stroke="var(--ink)" stroke-width="1.6" fill="none"/>
+                <path d="M146 200 C120 196 108 182 104 170 C120 168 138 178 146 200 Z" stroke="var(--ink)" stroke-width="1.6" fill="none"/>
+                <path d="M153 178 C176 176 190 164 196 150 C178 148 160 160 153 178 Z" stroke="var(--ink)" stroke-width="1.6" fill="none"/>
+                <g transform="translate(150 98)" stroke="var(--ink)" stroke-width="1.6" fill="none">
+                  <g id="pr"><path d="M0 -8 C-8 -16 -7 -30 0 -32 C7 -30 8 -16 0 -8"/></g>
+                  <use href="#pr" transform="rotate(60)"/><use href="#pr" transform="rotate(120)"/>
+                  <use href="#pr" transform="rotate(180)"/><use href="#pr" transform="rotate(240)"/><use href="#pr" transform="rotate(300)"/>
+                  <circle r="5"/>
+                </g>
+                <text x="150" y="276" text-anchor="middle">calma</text>
+              </svg>
+            </div>
+            <p style="text-align:center"><button class="btn" type="button" id="imprimir">Imprimir o risco</button></p>
+            <p class="extra" style="text-align:center">Imprima em tamanho real: o círculo tracejado tem 15 cm e marca a borda do bastidor.</p>
+          </div>
+          <div>
+            <p><b>Qual ponto vai em cada parte:</b></p>
+            <div class="table-wrap"><table>
+              <tr><th>Parte</th><th>Ponto</th><th>Fios</th></tr>
+              <tr><td>Caule</td><td><a href="#haste">Haste</a> (verde)</td><td>3</td></tr>
+              <tr><td>Folhas</td><td>Contorno em <a href="#atras">atrás</a>, ou cheias com <a href="#cheio">cheio</a></td><td>2</td></tr>
+              <tr><td>Pétalas</td><td><a href="#margarida">Margarida</a></td><td>3</td></tr>
+              <tr><td>Miolo</td><td>3 a 5 <a href="#no-frances">nós franceses</a></td><td>3</td></tr>
+              <tr><td>Palavra</td><td><a href="#atras">Atrás</a> com pontos pequenos (curvas!)</td><td>2</td></tr>
+            </table></div>
+            <div class="tip"><b>Ordem que funciona</b>Borde do centro para fora e das linhas para os preenchimentos: caule, folhas, pétalas, miolo e, por último, a palavra.</div>
+            <div class="video" data-id="zZuOUH2Lteg" data-title="Como bordar letras à mão com pontos simples" data-channel="Rosalia Rosarinha Bordado"></div>
+            <p class="extra">Prefere bordar só uma palavra primeiro? <a href="https://www.youtube.com/watch?v=-IQZ3UM-sao" target="_blank" rel="noopener">Bordando palavras, em detalhes: "Gratidão"</a> (ELYARTDECOR).</p>
+          </div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="projeto"> Terminei meu primeiro bordado</label>
+      </section>
+
+      <!-- Acabamento -->
+      <section class="lesson" id="acabamento">
+        <span class="tag">Etapa 4 · Finalizar</span>
+        <h2>Acabamento no bastidor</h2>
+        <p class="goal"><b>Objetivo:</b> deixar a peça pronta para pendurar ou dar de presente, com o avesso fechado.</p>
+        <div class="cols">
+          <div>
+            <ol class="steps">
+              <li>Apague o risco que sobrou (água ou o método da sua caneta) e deixe secar com o tecido ainda no bastidor, ou passe pelo avesso sobre uma toalha.</li>
+              <li>Recoloque no bastidor bem esticado e centralizado. Aperte bem o parafuso.</li>
+              <li>Corte o tecido que sobra deixando uns 3 cm além do aro.</li>
+              <li>Faça um alinhavo grande em volta dessa sobra, a 1 cm da borda, e puxe a linha: o tecido franze e se dobra para dentro do aro. Dê um nó.</li>
+              <li>Para fechar o avesso, corte um círculo de feltro do tamanho do aro interno e costure ou cole por cima.</li>
+            </ol>
+            <div class="tip"><b>Para pendurar</b>O próprio parafuso do bastidor serve de gancho. Passe uma fita ou barbante por ele.</div>
+            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=StXnZnDNhSs" target="_blank" rel="noopener">Acabamento no bastidor, passo a passo</a>.</p>
+          </div>
+          <div class="video" data-id="JnjLKnXoeQM" data-title="Como fazer acabamento no bastidor do bordado" data-channel="Ponto Meia Três"></div>
+        </div>
+        <label class="done"><input type="checkbox" data-key="acabamento"> Minha peça está pronta</label>
+      </section>
+
+      <!-- Problemas -->
+      <section class="lesson" id="problemas">
+        <span class="tag">Consulta</span>
+        <h2>Problemas e soluções</h2>
+        <div class="table-wrap"><table>
+          <tr><th>O que aconteceu</th><th>Provável causa</th><th>Como resolver</th></tr>
+          <tr><td>Tecido franzido em volta dos pontos</td><td>Linha puxada demais ou tecido frouxo no bastidor</td><td>Estique o tecido de novo; puxe a linha só até ela deitar</td></tr>
+          <tr><td>Linha cheia de nós e embolada</td><td>Linha comprida demais ou torcida</td><td>Use no máximo 50 cm; deixe a agulha pendurada girar</td></tr>
+          <tr><td>Nó francês sumiu para trás</td><td>Desceu no mesmo furo</td><td>Desça bem ao lado, com a linha esticada</td></tr>
+          <tr><td>Linha desfiando e sem brilho</td><td>Linha usada por tempo demais</td><td>Troque a linha mais cedo; fios curtos rendem mais</td></tr>
+          <tr><td>Ponto cheio frouxo ou com falhas</td><td>Pontos longos ou espaçados</td><td>Pontos encostados, até 1 cm; contorne antes</td></tr>
+          <tr><td>Marca redonda no tecido</td><td>Ficou muito tempo no bastidor</td><td>Tire do bastidor ao parar; lave e passe</td></tr>
+          <tr><td>Linha escura aparecendo pela frente</td><td>Linha passando longe pelo avesso</td><td>Arremate e recomece no ponto novo</td></tr>
+          <tr><td>Errei um ponto</td><td>Acontece</td><td>Tire a agulha, puxe o ponto de volta com cuidado ou corte e desmanche; não puxe pela frente com força</td></tr>
+        </table></div>
+      </section>
+
+      <!-- Plano -->
+      <section class="lesson" id="plano">
+        <span class="tag">Consulta</span>
+        <h2>Plano de 7 dias (20 a 40 minutos por dia)</h2>
+        <div class="table-wrap"><table>
+          <tr><th>Dia</th><th>O que fazer</th></tr>
+          <tr><td>1</td><td>Vídeo geral, separar material, montar o bastidor com o tecido de treino</td></tr>
+          <tr><td>2</td><td>Linha (começar e arrematar), alinhavo e ponto atrás no mostruário</td></tr>
+          <tr><td>3</td><td>Ponto haste em linha reta e em curva</td></tr>
+          <tr><td>4</td><td>Ponto corrente e ponto margarida</td></tr>
+          <tr><td>5</td><td>Ponto cheio numa folhinha e 10 nós franceses</td></tr>
+          <tr><td>6</td><td>Passar o risco do projeto e bordar caule, folhas e flor</td></tr>
+          <tr><td>7</td><td>Bordar a palavra e fazer o acabamento</td></tr>
+        </table></div>
+        <p class="extra">Atrasou? Tudo bem. Vale mais bordar 15 minutos todo dia do que 2 horas uma vez por semana: a mão aprende a tensão com repetição.</p>
+      </section>
+
+      <!-- Glossário -->
+      <section class="lesson" id="glossario">
+        <span class="tag">Consulta</span>
+        <h2>Glossário</h2>
+        <div class="table-wrap"><table>
+          <tr><td><b>Bastidor</b></td><td>Par de aros que prende e estica o tecido.</td></tr>
+          <tr><td><b>Meada / mouliné</b></td><td>Linha de bordar com 6 fios que se separam.</td></tr>
+          <tr><td><b>Risco</b></td><td>O desenho marcado no tecido para guiar o bordado.</td></tr>
+          <tr><td><b>Avesso</b></td><td>O lado de trás do bordado.</td></tr>
+          <tr><td><b>Arremate</b></td><td>Prender o fim da linha no avesso para não soltar.</td></tr>
+          <tr><td><b>Tensão</b></td><td>O quanto você puxa a linha em cada ponto.</td></tr>
+          <tr><td><b>Trama</b></td><td>O cruzamento dos fios do tecido.</td></tr>
+          <tr><td><b>Mostruário</b></td><td>Tecido de treino com amostras de vários pontos.</td></tr>
+        </table></div>
+      </section>
+
+      <!-- Fontes -->
+      <section class="lesson" id="fontes">
+        <span class="tag">Créditos</span>
+        <h2>Fontes e vídeos</h2>
+        <p>Os vídeos são de canais brasileiros de bordado no YouTube; os direitos são de seus autores. A estrutura do curso segue o que os guias de bordado para iniciantes recomendam: materiais, preparo e bastidor, poucos pontos básicos em ordem de dificuldade, treino num mostruário e só depois um projeto pequeno, com atenção aos erros de tensão e franzido.</p>
+        <ul class="sources">
+          <li>Canais dos vídeos: Rosalia Rosarinha Bordado, Mimarie . Bordado Livre, Clube do Bordado, Aprendizato (Tati Faias), Pano Xadrez, Mel Ateliê Bordados, Revista Marileny Ponto Cruz, Ponto Meia Três, ELYARTDECOR, Bordado à Mão Mirian Oliveira.</li>
+          <li><a href="https://practicalembroidery.eu/how-to-start-hand-embroidery-beginner-roadmap/" target="_blank" rel="noopener">How to Start Hand Embroidery: Beginner Roadmap</a> (Practical Embroidery)</li>
+          <li><a href="https://www.needlenthread.com/2015/06/hand-embroidery-tips-for-beginners-and-beyond.html" target="_blank" rel="noopener">Hand embroidery tips for beginners and beyond</a> (Needle 'n Thread)</li>
+          <li><a href="https://needlework-tips-and-techniques.com/embroidery-tips-for-beginners.html" target="_blank" rel="noopener">Embroidery Tips for Beginners: Easy Fixes for Common Mistakes</a></li>
+          <li><a href="https://www.embroidery.rocksea.org/mistakes-embroidery-beginner" target="_blank" rel="noopener">Common Mistakes Made in Hand Embroidery</a></li>
+        </ul>
+      </section>
+
+      <footer>Feito para estudo pessoal. Seu progresso fica salvo só neste navegador.</footer>
+    </main>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Vídeos: miniatura que vira player ao clicar
+  var local = location.protocol === 'file:';
+  document.querySelectorAll('.video').forEach(function(el){
+    var id = el.dataset.id, title = el.dataset.title, ch = el.dataset.channel;
+    var url = 'https://www.youtube.com/watch?v=' + id;
+    var btn = document.createElement('button');
+    btn.type = 'button'; btn.className = 'vbtn';
+    btn.setAttribute('aria-label', 'Assistir: ' + title);
+    btn.innerHTML = '<img loading="lazy" alt="" src="https://i.ytimg.com/vi/' + id + '/hqdefault.jpg"><span class="play"></span>';
+    btn.addEventListener('click', function(){
+      // Aberto direto do arquivo, o YouTube recusa o player embutido: abre no site.
+      if (local) { window.open(url, '_blank', 'noopener'); return; }
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+      f.title = title;
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+      f.allowFullscreen = true;
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      btn.replaceWith(f);
+    });
+    var cap = document.createElement('div');
+    cap.className = 'vcap';
+    cap.innerHTML = '<span><b></b> · <span></span></span><a target="_blank" rel="noopener">Abrir no YouTube ↗</a>';
+    cap.querySelector('b').textContent = title;
+    cap.querySelector('span span').textContent = ch;
+    cap.querySelector('a').href = url;
+    el.append(btn, cap);
+  });
+
+  // Progresso salvo no navegador
+  var KEY = 'bordado-progresso', estado = {};
+  try { estado = JSON.parse(localStorage.getItem(KEY)) || {}; } catch(e) {}
+  var caixas = document.querySelectorAll('.done input');
+  function atualizar(){
+    var n = 0;
+    caixas.forEach(function(c){
+      var sec = c.closest('section');
+      var link = document.querySelector('nav.side a[href="#' + sec.id + '"]');
+      if (link) link.classList.toggle('feito', c.checked);
+      if (c.checked) n++;
+    });
+    document.getElementById('barra').style.width = (100 * n / caixas.length) + '%';
+    document.getElementById('contagem').textContent = n + ' de ' + caixas.length + ' etapas';
+  }
+  caixas.forEach(function(c){
+    c.checked = !!estado[c.dataset.key];
+    c.addEventListener('change', function(){
+      estado[c.dataset.key] = c.checked;
+      try { localStorage.setItem(KEY, JSON.stringify(estado)); } catch(e) {}
+      atualizar();
+    });
+  });
+  atualizar();
+
+  // Tema
+  var root = document.documentElement;
+  try { var t = localStorage.getItem('bordado-tema'); if (t) root.dataset.theme = t; } catch(e) {}
+  document.getElementById('tema').addEventListener('click', function(){
+    var escuro = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    root.dataset.theme = escuro ? 'light' : 'dark';
+    try { localStorage.setItem('bordado-tema', root.dataset.theme); } catch(e) {}
+  });
+
+  // Menu no celular
+  var menu = document.getElementById('menu');
+  document.getElementById('menu-btn').addEventListener('click', function(){ menu.classList.toggle('open'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+  document.getElementById('imprimir').addEventListener('click', function(){ window.print(); });
+})();
+</script>
+</body>
+</html>
