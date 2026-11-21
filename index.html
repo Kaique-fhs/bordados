@@ -107,6 +107,14 @@ svg .fillst{stroke:var(--thread);stroke-width:3.2;stroke-linecap:round}
 .vcap{font-size:.88rem;color:var(--muted);margin-top:6px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
 .vcap b{color:var(--ink);font-weight:600}
 .extra{font-size:.9rem;color:var(--muted);margin-top:8px}
+ul.extra{padding-left:18px}
+ul.extra li{margin-bottom:3px}
+.fav-badge{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);border-radius:99px;padding:1px 8px;margin-right:6px;vertical-align:1px}
+.canal{display:flex;gap:14px;align-items:center;background:var(--surface);border:1.5px solid var(--accent);border-radius:12px;padding:14px 16px;margin-top:16px}
+.canal>span{font-size:1.6rem}
+.canal p{margin:0}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:10px 0 22px}
+.cards .video{margin:0}
 
 .done{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 16px;border:1.5px solid var(--line);border-radius:99px;cursor:pointer;font-weight:600;user-select:none}
 .done input{width:18px;height:18px;accent-color:var(--ok)}
@@ -171,6 +179,10 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
       <div><b>3. Treine num mostruário</b><span>Um tecido só de treino, sem pressão de ficar bonito. Ele vira sua referência.</span></div>
       <div><b>4. Erros já previstos</b><span>Cada ponto traz o erro mais comum de quem está começando e como corrigir.</span></div>
     </div>
+    <div class="canal">
+      <span>🧵</span>
+      <p><b>Professora recomendada:</b> sempre que existe, o vídeo principal da lição é do canal <a href="https://www.youtube.com/@suelenalves_" target="_blank" rel="noopener">Suelen Alves · Bordado Livre</a> (marcado com <span class="fav-badge">Suelen</span>). Onde ela não tem aula do tema, entram outros canais.</p>
+    </div>
   </section>
 
   <div class="layout">
@@ -194,6 +206,8 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
         <li><a href="#projeto"><span class="ck"></span>Primeiro bordado</a></li>
         <li class="grp">Etapa 4 · Finalizar</li>
         <li><a href="#acabamento"><span class="ck"></span>Acabamento no bastidor</a></li>
+        <li class="grp">Etapa 5 · Ir além</li>
+        <li><a href="#ir-alem">Novos pontos e renda extra</a></li>
         <li class="grp">Consulta</li>
         <li><a href="#problemas">Problemas e soluções</a></li>
         <li><a href="#plano">Plano de 7 dias</a></li>
@@ -234,9 +248,14 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
           <div>
             <div class="oops"><b>Erro comum</b>Começar com tecido elástico (malha, camiseta) ou muito fino. Ele franze e deforma. Deixe esses para depois.</div>
             <div class="tip"><b>Quantos fios usar?</b>Para linhas e contornos, 2 ou 3 fios da meada. Para preencher com ponto cheio, 2 fios dão um acabamento mais liso. Separe os fios puxando um de cada vez pela ponta e junte de novo os que quiser usar.</div>
-            <p class="extra">Outro vídeo sobre o tema: <a href="https://www.youtube.com/watch?v=-5nFKVo0CaM" target="_blank" rel="noopener">Materiais básicos para bordado livre</a> (Clube do Bordado), que também ensina a passar a linha na agulha.</p>
+            <p class="extra">Para complementar:</p>
+            <ul class="extra">
+              <li><a href="https://www.youtube.com/watch?v=jkweMoSs6YQ" target="_blank" rel="noopener">Precisa usar dois tecidos para bordar? E quando?</a> (Suelen Alves)</li>
+              <li><a href="https://www.youtube.com/watch?v=yphshHmuntc" target="_blank" rel="noopener">Curso Bordado Livre, Aula 1: Materiais</a> (Mimarie)</li>
+              <li><a href="https://www.youtube.com/watch?v=-5nFKVo0CaM" target="_blank" rel="noopener">Materiais básicos para bordado livre</a> (Clube do Bordado), que também ensina a passar a linha na agulha</li>
+            </ul>
           </div>
-          <div class="video" data-id="yphshHmuntc" data-title="Curso Bordado Livre para iniciantes, Aula 1: Materiais" data-channel="Mimarie . Bordado Livre"></div>
+          <div class="video" data-id="EEM_c6e1ddo" data-title="Quais materiais eu uso para bordar?" data-channel="Suelen Alves · Bordado Livre"></div>
         </div>
         <label class="done"><input type="checkbox" data-key="materiais"> Já separei meu material</label>
       </section>
@@ -280,12 +299,17 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <li>Contorne o desenho com a caneta para tecido, em traço leve.</li>
               <li>Só então monte o bastidor.</li>
             </ol>
-            <p><b>Outras formas:</b> papel carbono próprio para tecido (para tecidos escuros, use carbono claro) e papel solúvel em água, que você desenha, cola no tecido e dissolve no fim.</p>
+            <p><b>Outras formas:</b> imprimir o risco direto no tecido (é o que a Suelen mostra no vídeo ao lado), papel carbono próprio para tecido (para tecidos escuros, use carbono claro) e papel solúvel em água, que você desenha, cola no tecido e dissolve no fim.</p>
             <div class="oops"><b>Erro comum</b>Usar carbono de escritório ou caneta esferográfica forte. Pode manchar e não sair. Teste a caneta num canto do tecido antes.</div>
             <div class="tip"><b>Caneta que some com calor</b>Funciona, mas o traço pode voltar se o tecido esfriar muito. Para peças de presente, prefira a que sai com água.</div>
-            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=EhwG_H2Dtg0" target="_blank" rel="noopener">Como passar o risco para o tecido com o celular</a> (Bordado à Mão Mirian Oliveira).</p>
+            <p class="extra">Para complementar:</p>
+            <ul class="extra">
+              <li><a href="https://www.youtube.com/watch?v=1YS5PEhSq-s" target="_blank" rel="noopener">Como criar riscos para bordar com o seu celular</a> (Suelen Alves)</li>
+              <li><a href="https://www.youtube.com/watch?v=_D_HvCB9qIU" target="_blank" rel="noopener">Como passar o risco para o tecido</a> (Rosalia Rosarinha), com o método de contraluz e carbono</li>
+              <li><a href="https://www.youtube.com/watch?v=EhwG_H2Dtg0" target="_blank" rel="noopener">Como passar o risco para o tecido com o celular</a> (Mirian Oliveira)</li>
+            </ul>
           </div>
-          <div class="video" data-id="_D_HvCB9qIU" data-title="Como passar o risco para o tecido" data-channel="Rosalia Rosarinha Bordado"></div>
+          <div class="video" data-id="3uXd9_8vONE" data-title="Como imprimir o risco do bordado no tecido" data-channel="Suelen Alves · Bordado Livre"></div>
         </div>
         <label class="done"><input type="checkbox" data-key="risco"> Meu desenho está no tecido</label>
       </section>
@@ -300,14 +324,18 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
             <ol class="steps">
               <li><b>Corte a linha</b> do tamanho do seu antebraço (do pulso ao cotovelo, uns 40 a 50 cm). Linha mais longa embola e desfia.</li>
               <li><b>Separe os fios</b> que vai usar (2 ou 3) e passe pela agulha. Umedecer e achatar a ponta ajuda.</li>
-              <li><b>Comece:</b> dê um nó pequeno na ponta e suba a agulha por trás. Com prática, troque o nó por um início sem nó: deixe uma ponta no avesso e prenda-a com os primeiros pontos.</li>
+              <li><b>Comece:</b> dê um nó pequeno na ponta (o nó de costureira do vídeo ao lado é rápido e firme) e suba a agulha por trás. Com prática, troque o nó por um início sem nó: deixe uma ponta no avesso e prenda-a com os primeiros pontos.</li>
               <li><b>Termine:</b> no avesso, passe a agulha por baixo de 3 ou 4 pontos já feitos, volte por mais 2 e corte rente.</li>
             </ol>
             <div class="oops"><b>Erro comum</b>Linha torcendo e fazendo nós sozinha. A cada tanto, solte a agulha e deixe-a pendurada girar até a linha desenrolar.</div>
             <div class="tip"><b>Cor escura em tecido claro</b>Não "pule" longe pelo avesso com linha escura: ela aparece pela frente. Arremate e recomece no ponto novo.</div>
-            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=y0xFm4xE2-w" target="_blank" rel="noopener">Minuto do bordado: início e arremate sem nó</a> (Mel Ateliê Bordados).</p>
+            <p class="extra">Para complementar:</p>
+            <ul class="extra">
+              <li><a href="https://www.youtube.com/watch?v=m23gAiRzXyI" target="_blank" rel="noopener">Como iniciar e terminar um bordado</a> (Pano Xadrez), com o arremate pelo avesso</li>
+              <li><a href="https://www.youtube.com/watch?v=y0xFm4xE2-w" target="_blank" rel="noopener">Minuto do bordado: início e arremate sem nó</a> (Mel Ateliê Bordados)</li>
+            </ul>
           </div>
-          <div class="video" data-id="m23gAiRzXyI" data-title="Como iniciar e terminar um bordado" data-channel="Pano Xadrez, Eliana Zerbinatti"></div>
+          <div class="video" data-id="5QbeSFYIQQs" data-title="Como fazer o nó de costureira para bordar" data-channel="Suelen Alves · Bordado Livre"></div>
         </div>
         <label class="done"><input type="checkbox" data-key="linha"> Sei começar e arrematar</label>
       </section>
@@ -380,6 +408,7 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <li>Repita. Em curvas, faça pontos menores.</li>
             </ol>
             <div class="oops"><b>Erro comum</b>Descer ao lado do furo anterior, deixando um vão. Mire exatamente no mesmo furo.</div>
+            <p class="extra">Depois de pegar o jeito: <a href="https://www.youtube.com/watch?v=-_8lSa30JYw" target="_blank" rel="noopener">Aula de letras com ponto atrás</a> (Suelen Alves).</p>
           </div>
           <div class="video" data-id="VvNWVNhthwA" data-title="Ponto atrás: ponto básico de bordado à mão para iniciantes" data-channel="Rosalia Rosarinha Bordado"></div>
         </div>
@@ -415,8 +444,14 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <li>Desça mais um ponto à frente e repita, sempre com a linha do mesmo lado.</li>
             </ol>
             <div class="oops"><b>Erro comum</b>Trocar o lado da linha no meio do caminho. O "torcido" se desfaz. Escolha um lado (de baixo) e mantenha.</div>
+            <p class="extra">Para complementar:</p>
+            <ul class="extra">
+              <li><a href="https://www.youtube.com/watch?v=YI4OzipqcZ8" target="_blank" rel="noopener">Como bordar o haste em curvas</a> (Suelen Alves)</li>
+              <li><a href="https://www.youtube.com/watch?v=XpA6ps9IPLo" target="_blank" rel="noopener">Como fazer a união do ponto haste</a> (Suelen Alves), para emendar sem marcar</li>
+              <li><a href="https://www.youtube.com/watch?v=NSWlti7BjaA" target="_blank" rel="noopener">Série ponto haste, aula 01</a> (Marileny Pido), mais detalhada</li>
+            </ul>
           </div>
-          <div class="video" data-id="NSWlti7BjaA" data-title="Bordado livre para iniciantes, série ponto haste, aula 01" data-channel="Revista Marileny Ponto Cruz"></div>
+          <div class="video" data-id="seeL_rzd68Q" data-title="Como fazer o ponto haste" data-channel="Suelen Alves · Bordado Livre"></div>
         </div>
         <label class="done"><input type="checkbox" data-key="haste"> Treinei o ponto haste</label>
       </section>
@@ -450,6 +485,7 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <li>Repita a partir do furo 3. No fim, prenda o último elo com um pontinho por cima.</li>
             </ol>
             <div class="oops"><b>Erro comum</b>Puxar a laçada demais e o elo virar um risco fino. Puxe só até ele ficar redondinho.</div>
+            <p class="extra">Variação: <a href="https://www.youtube.com/watch?v=bjT3GrW41nY" target="_blank" rel="noopener">Ponto corrente com duas cores</a> (Suelen Alves).</p>
           </div>
           <div class="video" data-id="zfLWHUqqNO0" data-title="Tutorial bordado livre: ponto corrente" data-channel="Mimarie . Bordado Livre"></div>
         </div>
@@ -521,8 +557,13 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <li>Volte ao meio e preencha a outra metade.</li>
             </ol>
             <div class="oops"><b>Erro comum</b>Pontos longos demais (mais de 1 cm). Eles ficam frouxos e enganchando. Divida áreas grandes em partes, ou use outro ponto.</div>
+            <p class="extra">Para complementar:</p>
+            <ul class="extra">
+              <li>Borde junto com a Suelen, em 3 partes: <a href="https://www.youtube.com/watch?v=PiAvde4SIYE" target="_blank" rel="noopener">parte 1</a>, <a href="https://www.youtube.com/watch?v=zGe_reeJrOw" target="_blank" rel="noopener">parte 2</a> e <a href="https://www.youtube.com/watch?v=SniXJYdYZpg" target="_blank" rel="noopener">parte 3</a> (flor com ponto cheio)</li>
+              <li><a href="https://www.youtube.com/watch?v=j42uBR8LQt0" target="_blank" rel="noopener">Tutorial do ponto cheio</a> (Mimarie), só o ponto, mais curto</li>
+            </ul>
           </div>
-          <div class="video" data-id="j42uBR8LQt0" data-title="Tutorial bordado livre: ponto cheio" data-channel="Mimarie . Bordado Livre"></div>
+          <div class="video" data-id="pezd-WEufpk" data-title="Como bordar uma flor com ponto cheio" data-channel="Suelen Alves · Bordado Livre"></div>
         </div>
         <label class="done"><input type="checkbox" data-key="cheio"> Treinei o ponto cheio</label>
       </section>
@@ -598,11 +639,17 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <tr><td>Folhas</td><td>Contorno em <a href="#atras">atrás</a>, ou cheias com <a href="#cheio">cheio</a></td><td>2</td></tr>
               <tr><td>Pétalas</td><td><a href="#margarida">Margarida</a></td><td>3</td></tr>
               <tr><td>Miolo</td><td>3 a 5 <a href="#no-frances">nós franceses</a></td><td>3</td></tr>
-              <tr><td>Palavra</td><td><a href="#atras">Atrás</a> com pontos pequenos (curvas!)</td><td>2</td></tr>
+              <tr><td>Palavra</td><td><a href="#atras">Atrás</a> com pontos pequenos, ou <a href="#haste">haste</a> como no vídeo</td><td>2</td></tr>
             </table></div>
             <div class="tip"><b>Ordem que funciona</b>Borde do centro para fora e das linhas para os preenchimentos: caule, folhas, pétalas, miolo e, por último, a palavra.</div>
-            <div class="video" data-id="zZuOUH2Lteg" data-title="Como bordar letras à mão com pontos simples" data-channel="Rosalia Rosarinha Bordado"></div>
-            <p class="extra">Prefere bordar só uma palavra primeiro? <a href="https://www.youtube.com/watch?v=-IQZ3UM-sao" target="_blank" rel="noopener">Bordando palavras, em detalhes: "Gratidão"</a> (ELYARTDECOR).</p>
+            <div class="video" data-id="MWbkCJxcLmc" data-title="Curso para iniciantes: letra bordada com ponto haste" data-channel="Suelen Alves · Bordado Livre"></div>
+            <p class="extra">Outros jeitos de bordar a palavra:</p>
+            <ul class="extra">
+              <li><a href="https://www.youtube.com/watch?v=-_8lSa30JYw" target="_blank" rel="noopener">Letras com ponto atrás</a> (Suelen Alves), o mais fácil para a primeira vez</li>
+              <li><a href="https://www.youtube.com/watch?v=LRn2pB_eoEI" target="_blank" rel="noopener">Letras com ponto corrente</a> (Suelen Alves), para letras mais grossas</li>
+              <li><a href="https://www.youtube.com/watch?v=zZuOUH2Lteg" target="_blank" rel="noopener">Como bordar letras com pontos simples</a> (Rosalia Rosarinha)</li>
+              <li><a href="https://www.youtube.com/watch?v=-IQZ3UM-sao" target="_blank" rel="noopener">Bordando palavras, em detalhes: "Gratidão"</a> (ELYARTDECOR)</li>
+            </ul>
           </div>
         </div>
         <label class="done"><input type="checkbox" data-key="projeto"> Terminei meu primeiro bordado</label>
@@ -623,11 +670,42 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
               <li>Para fechar o avesso, corte um círculo de feltro do tamanho do aro interno e costure ou cole por cima.</li>
             </ol>
             <div class="tip"><b>Para pendurar</b>O próprio parafuso do bastidor serve de gancho. Passe uma fita ou barbante por ele.</div>
-            <p class="extra">Outro vídeo: <a href="https://www.youtube.com/watch?v=StXnZnDNhSs" target="_blank" rel="noopener">Acabamento no bastidor, passo a passo</a>.</p>
+            <div class="tip"><b>Para lavar depois</b>Água fria, sabão neutro, sem esfregar o bordado. Seque deitado e passe pelo avesso sobre uma toalha felpuda, para não amassar os pontos.</div>
+            <p class="extra">Para complementar:</p>
+            <ul class="extra">
+              <li><a href="https://www.youtube.com/watch?v=IVpKV1Wb22E" target="_blank" rel="noopener">Acabamento na moldura de vidro</a> (Suelen Alves), uma alternativa ao bastidor</li>
+              <li><a href="https://www.youtube.com/watch?v=StXnZnDNhSs" target="_blank" rel="noopener">Acabamento no bastidor, passo a passo</a></li>
+            </ul>
           </div>
           <div class="video" data-id="JnjLKnXoeQM" data-title="Como fazer acabamento no bastidor do bordado" data-channel="Ponto Meia Três"></div>
         </div>
         <label class="done"><input type="checkbox" data-key="acabamento"> Minha peça está pronta</label>
+      </section>
+
+      <!-- Ir além -->
+      <section class="lesson" id="ir-alem">
+        <span class="tag">Etapa 5 · Ir além</span>
+        <h2>Depois do primeiro bordado</h2>
+        <p>Com os 7 pontos e uma peça pronta, estes são bons próximos passos, todos do canal da Suelen Alves. Escolha um por vez, na ordem que quiser.</p>
+
+        <h3>Novos pontos e efeitos</h3>
+        <div class="cards">
+          <div class="video" data-id="1s4jXJK-h6s" data-title="Como bordar flor com o ponto rosa" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="hdM1aebCHNY" data-title="Folha com duas cores" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="6bTbB6zhtSA" data-title="Como fazer a flor 3D" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="Kefu0IH3Jxk" data-title="Preenchimento com ponto atrás" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="VKSeOPuuHMY" data-title="Como bordar com linha metalizada" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="1YS5PEhSq-s" data-title="Como criar riscos para bordar com o seu celular" data-channel="Suelen Alves · Bordado Livre"></div>
+        </div>
+
+        <h3>Bordado como renda extra</h3>
+        <p class="extra" style="margin-top:0">Para quando você já bordar com segurança e quiser vender suas peças.</p>
+        <div class="cards">
+          <div class="video" data-id="wuY3G1jEwwk" data-title="Como precificar o seu bordado de forma prática" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="DPK2ys3KT9k" data-title="3 formas de vender seus bordados" data-channel="Suelen Alves · Bordado Livre"></div>
+          <div class="video" data-id="-Cs2hDBnrXg" data-title="Como começar a empreender com o bordado" data-channel="Suelen Alves · Bordado Livre"></div>
+        </div>
+        <p class="extra">Mais aulas no <a href="https://www.youtube.com/@suelenalves_" target="_blank" rel="noopener">canal da Suelen Alves</a>, na playlist <a href="https://www.youtube.com/playlist?list=PLJa4L0RGUIpiOBPfYoDFgWAFdBWhZNi2v" target="_blank" rel="noopener">Tutorial de pontos</a>.</p>
       </section>
 
       <!-- Problemas -->
@@ -686,7 +764,8 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
         <h2>Fontes e vídeos</h2>
         <p>Os vídeos são de canais brasileiros de bordado no YouTube; os direitos são de seus autores. A estrutura do curso segue o que os guias de bordado para iniciantes recomendam: materiais, preparo e bastidor, poucos pontos básicos em ordem de dificuldade, treino num mostruário e só depois um projeto pequeno, com atenção aos erros de tensão e franzido.</p>
         <ul class="sources">
-          <li>Canais dos vídeos: Rosalia Rosarinha Bordado, Mimarie . Bordado Livre, Clube do Bordado, Aprendizato (Tati Faias), Pano Xadrez, Mel Ateliê Bordados, Revista Marileny Ponto Cruz, Ponto Meia Três, ELYARTDECOR, Bordado à Mão Mirian Oliveira.</li>
+          <li>Canal principal: <a href="https://www.youtube.com/@suelenalves_" target="_blank" rel="noopener">Suelen Alves · Bordado Livre</a>.</li>
+          <li>Outros canais: Rosalia Rosarinha Bordado, Mimarie . Bordado Livre, Clube do Bordado, Aprendizato (Tati Faias), Pano Xadrez, Mel Ateliê Bordados, Revista Marileny Ponto Cruz, Ponto Meia Três, ELYARTDECOR, Bordado à Mão Mirian Oliveira.</li>
           <li><a href="https://practicalembroidery.eu/how-to-start-hand-embroidery-beginner-roadmap/" target="_blank" rel="noopener">How to Start Hand Embroidery: Beginner Roadmap</a> (Practical Embroidery)</li>
           <li><a href="https://www.needlenthread.com/2015/06/hand-embroidery-tips-for-beginners-and-beyond.html" target="_blank" rel="noopener">Hand embroidery tips for beginners and beyond</a> (Needle 'n Thread)</li>
           <li><a href="https://needlework-tips-and-techniques.com/embroidery-tips-for-beginners.html" target="_blank" rel="noopener">Embroidery Tips for Beginners: Easy Fixes for Common Mistakes</a></li>
@@ -723,7 +802,8 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
     });
     var cap = document.createElement('div');
     cap.className = 'vcap';
-    cap.innerHTML = '<span><b></b> · <span></span></span><a target="_blank" rel="noopener">Abrir no YouTube ↗</a>';
+    var fav = /Suelen Alves/.test(ch) ? '<i class="fav-badge" style="font-style:normal">Suelen</i>' : '';
+    cap.innerHTML = '<span>' + fav + '<b></b> · <span></span></span><a target="_blank" rel="noopener">Abrir no YouTube ↗</a>';
     cap.querySelector('b').textContent = title;
     cap.querySelector('span span').textContent = ch;
     cap.querySelector('a').href = url;
