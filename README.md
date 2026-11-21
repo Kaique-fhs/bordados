@@ -23,15 +23,16 @@ Cada lição traz:
 - desenho do ponto com a ordem dos furos;
 - erro mais comum de quem está começando e como corrigir;
 - vídeo do YouTube em português;
+- teste rápido (quiz) com 2 ou 3 perguntas, correção na hora e explicação da resposta;
 - caixa para marcar a lição como feita.
 
 Também há uma tabela de problemas e soluções, um plano de 7 dias e um glossário.
 
 ## Recursos da página
 
-- Barra de progresso salva no próprio navegador (nada é enviado para servidor).
+- Barra de progresso e respostas do quiz salvas no próprio navegador (nada é enviado para servidor).
 - Tema claro e escuro.
-- Funciona no celular.
+- Funciona no computador e no celular: no celular o menu de lições abre por um botão e os botões do quiz têm tamanho de toque.
 - Botão para imprimir só o risco do projeto.
 
 ## Como rodar localmente

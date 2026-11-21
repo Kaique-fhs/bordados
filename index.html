@@ -118,6 +118,23 @@ ul.extra li{margin-bottom:3px}
 
 .done{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 16px;border:1.5px solid var(--line);border-radius:99px;cursor:pointer;font-weight:600;user-select:none}
 .done input{width:18px;height:18px;accent-color:var(--ok)}
+
+/* Quiz */
+.quiz{margin-top:24px;border-top:1px dashed var(--line);padding-top:18px}
+.quiz h3{display:flex;align-items:center;gap:8px}
+.quiz .q{margin:0 0 16px;border:0;padding:0}
+.quiz .q legend{font-weight:700;margin-bottom:8px;padding:0}
+.quiz .opts{display:grid;gap:8px}
+.quiz .opt{text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+@media (hover:hover){.quiz .opt:hover:not(:disabled){border-color:var(--accent)}}
+.quiz .opt:disabled{cursor:default}
+.quiz .opt.certa{border-color:var(--ok);background:color-mix(in srgb,var(--ok) 14%,transparent)}
+.quiz .opt.errada{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.quiz .opt.certa::before{content:"✓ ";color:var(--ok);font-weight:700}
+.quiz .opt.errada::before{content:"✗ ";color:var(--accent);font-weight:700}
+.quiz .expl{font-size:.92rem;color:var(--muted);margin-top:8px}
+.quiz .placar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-weight:700}
+.quiz .refazer{background:none;border:1px solid var(--line);color:var(--ink);border-radius:99px;padding:4px 14px;font:inherit;font-size:.9rem;cursor:pointer}
 .done:has(input:checked){border-color:var(--ok);color:var(--ok)}
 
 table{width:100%;border-collapse:collapse;font-size:.95rem}
@@ -139,7 +156,7 @@ footer{color:var(--muted);font-size:.9rem;padding:24px 0 48px;border-top:1px sol
   nav.side{position:static;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
   nav.side ol{display:none}
   nav.side.open ol{display:block}
-  nav.side .toggle{display:block}
+  nav.side button.toggle{display:block}
   .cols{grid-template-columns:1fr}
   .lesson{padding:20px}
   .progress small{display:none}
@@ -646,11 +663,11 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
                 <line x1="92" y1="70" x2="148" y2="22" stroke="var(--muted)" stroke-width="2.5" stroke-linecap="round"/>
                 <ellipse class="st" cx="114" cy="51" rx="9" ry="4" transform="rotate(-40 114 51)"/>
                 <ellipse class="st" cx="122" cy="44" rx="9" ry="4" transform="rotate(-40 122 44)"/>
-                <text x="88" y="82">2. enrola 2 vezes</text>
+                <text x="108" y="82" text-anchor="middle">2. enrola 2x</text>
                 <circle cx="200" cy="56" r="8" fill="var(--thread)"/>
                 <path d="M195 55 Q200 49 205 55 Q200 61 196 57" stroke="var(--bg)" stroke-width="1.5" fill="none"/>
                 <circle class="down" cx="212" cy="62" r="3"/>
-                <text x="168" y="82">3. desce ao lado</text>
+                <text x="232" y="82" text-anchor="end">3. desce ao lado</text>
               </svg>
               <figcaption>A linha fica esticada enquanto a agulha desce: é isso que forma o nó.</figcaption>
             </figure>
@@ -902,6 +919,141 @@ nav.side .toggle{display:none;width:100%;background:none;border:0;color:var(--in
     cap.querySelector('span span').textContent = ch;
     cap.querySelector('a').href = url;
     el.append(btn, cap);
+  });
+
+  // Quiz no fim de cada lição: [pergunta, [opções], índice da certa, explicação]
+  var QUIZ = {
+    materiais: [
+      ['Qual tecido é melhor para começar?', ['Malha de camiseta', 'Algodão cru ou tricoline', 'Voil transparente'], 1, 'Trama firme e fechada não estica e fica tensa no bastidor. Malha e voil ficam para depois.'],
+      ['Quantos fios tem uma linha meada (mouliné)?', ['2', '4', '6'], 2, 'São 6 fios finos que se separam. Você usa 2 ou 3 para linhas e contornos.'],
+      ['Qual tamanho de bastidor é bom para o primeiro projeto?', ['15 a 20 cm', '8 cm', '40 cm'], 0, 'Cabe bem na mão e no projeto. Bastidor grande demais cansa e o tecido afrouxa no meio.']
+    ],
+    tecidos: [
+      ['Nas agulhas de bordar, um número maior quer dizer:', ['Agulha mais grossa', 'Agulha mais comprida', 'Agulha mais fina'], 2, 'Quanto maior o número, mais fina. Nº 7 a 9 para 1 a 3 fios; nº 5 ou 6 para mais fios.'],
+      ['A linha raspa e desfia toda vez que passa no tecido. O que provavelmente está errado?', ['A agulha está fina demais para a quantidade de fios', 'A agulha está grossa demais', 'O tecido está esticado demais'], 0, 'A agulha precisa abrir um furo por onde a linha passe sem esforço. Troque por uma mais grossa (número menor).'],
+      ['Por que lavar o tecido antes de bordar?', ['Para tirar o risco', 'Ele pode encolher na primeira lavagem e franzir o bordado pronto', 'Para a agulha entrar mais fácil'], 1, 'Se encolher depois de bordado, o tecido em volta dos pontos franze.']
+    ],
+    bastidor: [
+      ['Como saber se o tecido está bem esticado?', ['Ele enruga quando você aperta', 'Dá para ver a mesa através dele', 'Faz som de tambor quando você bate com o dedo'], 2, 'Tecido esticado "como pele de tambor" evita o franzido.'],
+      ['Quando você deve puxar o tecido para esticar?', ['Antes de apertar o parafuso, aos poucos e em volta toda', 'Depois de apertar tudo, puxando de um lado só', 'Não precisa puxar'], 0, 'Puxar depois, de um lado só, entorta a trama e o desenho.'],
+      ['Vai ficar dias sem bordar. O que fazer?', ['Apertar mais o parafuso', 'Tirar o tecido do bastidor', 'Molhar o tecido'], 1, 'Assim o aro não deixa uma marca redonda no tecido.']
+    ],
+    risco: [
+      ['Qual é o jeito mais fácil de passar o risco para começar?', ['Carbono de escritório', 'Caneta esferográfica forte', 'Contraluz: papel na janela ou na tela do celular e tecido por cima'], 2, 'Só precisa da caneta para tecido e de luz. Carbono de escritório e esferográfica podem manchar.'],
+      ['Qual o cuidado com a caneta que some com calor?', ['O traço pode voltar se o tecido esfriar muito', 'Ela borra quando a agulha passa', 'Ela não aparece em tecido claro'], 0, 'Para peças de presente, prefira a caneta que sai com água.']
+    ],
+    linha: [
+      ['Qual o tamanho certo de linha para cortar?', ['Uns 15 cm', 'Do pulso ao cotovelo, uns 40 a 50 cm', 'Um metro, para não precisar trocar'], 1, 'Linha mais longa embola e desfia de tanto passar pelo tecido.'],
+      ['Como arrematar no fim?', ['Dar um nó grande pela frente', 'Cortar sem prender', 'Passar a agulha por baixo de 3 ou 4 pontos no avesso e cortar rente'], 2, 'Assim a linha não solta e o avesso fica limpo.'],
+      ['A linha está torcendo e fazendo nós sozinha. O que fazer?', ['Soltar a agulha e deixar ela pendurada girar', 'Puxar com mais força', 'Usar uma linha mais comprida'], 0, 'A agulha gira e a linha desenrola.']
+    ],
+    alinhavo: [
+      ['No ponto alinhavo, ponto e espaço devem ter:', ['O espaço com o dobro do ponto', 'O mesmo tamanho', 'Nenhum espaço'], 1, 'Ponto e espaço iguais formam o tracejado regular.'],
+      ['Para que o alinhavo serve?', ['Linhas tracejadas e contornos leves', 'Preencher áreas', 'Fazer bolinhas em relevo'], 0, 'Ele também ensina o movimento básico de subir e descer.']
+    ],
+    atras: [
+      ['No ponto atrás, depois de subir um ponto à frente, a agulha desce:', ['Ao lado do furo anterior', 'No meio do ponto anterior', 'No mesmo furo onde o ponto anterior terminou'], 2, 'Descer ao lado deixa um vão na linha.'],
+      ['E nas curvas?', ['Faça pontos menores', 'Faça pontos maiores', 'Troque de ponto'], 0, 'Pontos pequenos acompanham a curva sem deixar "quinas".']
+    ],
+    haste: [
+      ['No ponto haste, onde a agulha sobe a cada ponto?', ['No fim do ponto anterior', 'No meio do ponto anterior, ao lado da laçada', 'Bem longe do ponto anterior'], 1, 'Cada ponto começa no meio do anterior; é a sobreposição que dá o aspecto de cordinha.'],
+      ['O que desfaz o efeito "torcido" do haste?', ['Trocar o lado da linha no meio do caminho', 'Fazer pontos pequenos', 'Usar 3 fios'], 0, 'Escolha um lado (o de baixo) e mantenha até o fim.']
+    ],
+    corrente: [
+      ['Depois de subir a agulha, onde ela desce para formar o elo?', ['Um ponto à frente', 'No mesmo furo, deixando uma laçada', 'Do outro lado da linha'], 1, 'Depois você sobe por dentro da laçada, um ponto à frente.'],
+      ['Como terminar a corrente?', ['Puxando bem a última laçada', 'Com um nó pela frente', 'Prendendo o último elo com um pontinho por cima'], 2, 'Sem esse pontinho, o último elo se desfaz.']
+    ],
+    margarida: [
+      ['O ponto margarida é:', ['Um elo do ponto corrente, sozinho e preso na ponta', 'Um nó com várias voltas', 'Pontos paralelos lado a lado'], 0, 'Por isso vale aprender o corrente antes.'],
+      ['Por que não começar todas as pétalas exatamente no mesmo furo do centro?', ['Gasta mais linha', 'As pétalas ficam tortas', 'O tecido abre um buraco'], 2, 'Deixe um mínimo de distância entre os inícios.']
+    ],
+    cheio: [
+      ['O que fazer antes de preencher uma forma com ponto cheio?', ['Molhar o tecido', 'Contornar a forma com ponto atrás pequeno', 'Riscar a sombra'], 1, 'O contorno deixa a borda limpa e dá um leve relevo.'],
+      ['O que acontece com pontos cheios maiores que 1 cm?', ['Ficam frouxos e enganchando', 'Ficam mais lisos', 'Economizam linha'], 0, 'Divida áreas grandes em partes ou use outro ponto.'],
+      ['Por onde começar a preencher?', ['Pela ponta mais fina', 'Pelo meio da forma', 'Tanto faz'], 1, 'Começando pelo meio, os pontos ficam com a inclinação certa nas duas metades.']
+    ],
+    'no-frances': [
+      ['O nó francês sumiu para o avesso. Por quê?', ['Poucas voltas na agulha', 'Linha curta demais', 'A agulha desceu no mesmo furo de onde saiu'], 2, 'Desça bem ao lado, a um fio de distância, com a linha esticada.'],
+      ['Para fazer um nó francês maior, o melhor é:', ['Usar mais fios na agulha', 'Dar mais voltas', 'Puxar com mais força'], 0, 'Muitas voltas deixam o nó frouxo. 2 voltas com mais fios funcionam melhor.']
+    ],
+    projeto: [
+      ['Qual a ordem que funciona no projeto?', ['Começar pela palavra', 'Do centro para fora e das linhas para os preenchimentos', 'Primeiro os preenchimentos, depois os contornos'], 1, 'Caule, folhas, pétalas, miolo e, por último, a palavra.'],
+      ['Qual ponto foi indicado para o caule?', ['Ponto haste', 'Nó francês', 'Ponto cheio'], 0, 'O haste tem aspecto de cordinha, perfeito para caules e galhos.']
+    ],
+    acabamento: [
+      ['Quanto tecido deixar além do aro ao cortar a sobra?', ['Nada, cortar rente ao aro', 'Uns 15 cm', 'Uns 3 cm'], 2, 'É o suficiente para franzir com o alinhavo e dobrar para dentro do aro.'],
+      ['Como lavar uma peça bordada?', ['Água quente e escova', 'Água fria, sabão neutro, sem esfregar o bordado', 'Na máquina, junto com outras roupas'], 1, 'Seque deitado e passe pelo avesso sobre uma toalha felpuda.'],
+      ['Uma forma simples de fechar o avesso no bastidor:', ['Um círculo de feltro costurado ou colado', 'Fita adesiva', 'Não precisa fechar'], 0, 'Corte o feltro do tamanho do aro interno.']
+    ]
+  };
+  var QKEY = 'bordado-quiz', respostas = {};
+  try { respostas = JSON.parse(localStorage.getItem(QKEY)) || {}; } catch(e) {}
+  function salvarQuiz(){ try { localStorage.setItem(QKEY, JSON.stringify(respostas)); } catch(e) {} }
+
+  Object.keys(QUIZ).forEach(function(id){
+    var sec = document.getElementById(id);
+    if (!sec) return;
+    var perguntas = QUIZ[id];
+    var box = document.createElement('div');
+    box.className = 'quiz';
+    box.innerHTML = '<h3>✏️ Teste rápido</h3>';
+    var placar = document.createElement('div');
+    placar.className = 'placar';
+    placar.setAttribute('aria-live', 'polite');
+
+    function atualizarPlacar(){
+      var r = respostas[id] || {}, feitas = 0, certas = 0;
+      perguntas.forEach(function(p, i){ if (r[i] !== undefined) { feitas++; if (r[i] === p[2]) certas++; } });
+      placar.innerHTML = '';
+      if (feitas < perguntas.length) { placar.textContent = 'Responda as ' + perguntas.length + ' perguntas.'; return; }
+      var msg = document.createElement('span');
+      msg.textContent = certas === perguntas.length ? '🎉 Acertou tudo: ' + certas + ' de ' + perguntas.length + '!' : 'Você acertou ' + certas + ' de ' + perguntas.length + '. Releia a lição e tente de novo.';
+      var again = document.createElement('button');
+      again.type = 'button'; again.className = 'refazer'; again.textContent = '↺ Refazer';
+      again.addEventListener('click', function(){ delete respostas[id]; salvarQuiz(); montar(); });
+      placar.append(msg, again);
+    }
+
+    var lista = document.createElement('div');
+    function montar(){
+      lista.innerHTML = '';
+      perguntas.forEach(function(p, i){
+        var fs = document.createElement('fieldset'); fs.className = 'q';
+        var lg = document.createElement('legend'); lg.textContent = (i + 1) + '. ' + p[0];
+        var opts = document.createElement('div'); opts.className = 'opts';
+        var expl = document.createElement('p'); expl.className = 'expl'; expl.hidden = true;
+        var botoes = p[1].map(function(txt, j){
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'opt'; b.textContent = txt;
+          b.addEventListener('click', function(){ responder(j); });
+          opts.appendChild(b);
+          return b;
+        });
+        function responder(j, inicial){
+          botoes.forEach(function(b, k){
+            b.disabled = true;
+            if (k === p[2]) b.classList.add('certa');
+            else if (k === j) b.classList.add('errada');
+          });
+          expl.textContent = (j === p[2] ? 'Isso! ' : 'Não é essa. ') + p[3];
+          expl.hidden = false;
+          if (!inicial) {
+            respostas[id] = respostas[id] || {};
+            respostas[id][i] = j;
+            salvarQuiz(); atualizarPlacar();
+          }
+        }
+        fs.append(lg, opts, expl);
+        lista.appendChild(fs);
+        var r = respostas[id];
+        if (r && r[i] !== undefined) responder(r[i], true);
+      });
+      atualizarPlacar();
+    }
+    box.append(lista, placar);
+    montar();
+    var done = sec.querySelector('.done');
+    if (done) sec.insertBefore(box, done); else sec.appendChild(box);
   });
 
   // Progresso salvo no navegador
